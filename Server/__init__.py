@@ -8,7 +8,7 @@ def redirect_to_url():
     target_url = "https://synopsis-instrumentation-won-evans.trycloudflare.com"
     data = request.get_data()
     print(data)
-    response = post(target_url, data=data, headers=request.headers)
+    response = post(target_url, data=data)
     return "Sent"
     
 
