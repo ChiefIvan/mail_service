@@ -23,21 +23,21 @@ mail.init_app(app)
 
 def smt(email_address, title, value, image_path=""):
 
-    try:
-        msg = Message(recipients=[email_address], subject=title,
-                      body=value)
+    # try:
+    msg = Message(recipients=[email_address], subject=title,
+                  body=value)
 
-        if len(image_path) != 0:
-            with app.open_resource(image_path) as image:
-                msg.attach("data_report.png", "image/png", image.read())
+    if len(image_path) != 0:
+        with app.open_resource(image_path) as image:
+            msg.attach("data_report.png", "image/png", image.read())
 
-        mail.send(msg)
+    mail.send(msg)
 
-        return "Email Sent"
-    except ConnectionRefusedError:
-        return "No connection could be made because the target machine actively refused it"
-    except Exception:
-        return "There's an error while sending an Email!"
+    return "Email Sent"
+except ConnectionRefusedError:
+    return "No connection could be made because the target machine actively refused it"
+    # except Exception:
+    #     return "There's an error while sending an Email!"
 
 
 def visualize(log_data):
