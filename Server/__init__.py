@@ -11,10 +11,11 @@ mail = Mail()
 
 app.config["SECRET_KEY"] = "myKey888"
 app.config["MAIL_SERVER"] = "smtp-mail.outlook.com"
-app.config["MAIL_PORT"] = 443
+app.config["MAIL_PORT"] = 587
 app.config["MAIL_USE_TLS"] = True
 app.config["MAIL_USE_SSL"] = False
 app.config["MAIL_USERNAME"] = EMAIL
+app.config["MAIL_DEFAULT_SENDER"] = EMAIL
 app.config["MAIL_PASSWORD"] = PASSWORD
 
 mail.init_app(app)
