@@ -16,8 +16,7 @@ def redirect_to_url():
     except:
         return "Mail Service is offline, Please try again later"
 
-    print(response.text)
-    return "Sent"
+    return response.text
     
 
 
