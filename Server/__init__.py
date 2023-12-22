@@ -7,8 +7,11 @@ app = Flask(__name__)
 def redirect_to_url():
     target_url = "https://synopsis-instrumentation-won-evans.trycloudflare.com"
     data = request.get_data()
-    print(data)
-    response = post(target_url, data=data)
+    headers = {
+        "Content-Type": "application/json",
+    }  
+    
+    response = post(target_url, data=data, headers=headers)
     return "Sent"
     
 
