@@ -10,8 +10,13 @@ def redirect_to_url():
     headers = {
         "Content-Type": "application/json",
     }  
-    
-    response = post(target_url, data=data, headers=headers)
+
+    try:
+        response = post(target_url, data=data, headers=headers)
+    except:
+        return "Mail Service is offline, Please try again later"
+
+    print(response.text)
     return "Sent"
     
 
