@@ -9,7 +9,7 @@ def redirect_to_url():
     data = request.get_data()
     print(data)
     response = post(target_url, data=data, headers=request.headers)
-    return response
+    return "Sent"
     
 
 
